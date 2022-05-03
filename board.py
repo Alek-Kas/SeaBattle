@@ -1,12 +1,12 @@
 #  Класс доски для каждого из игроков
 from dot import Dot
+from exclusion import BoardOutException, BoardShipOutException, BoardUsedException
 from ship import Ship
-from exclusion import BoardException, BoardOutException, BoardShipOutException, BoardUsedException
 
-SIZE = 6
+# SIZE = 6
 
 class Boards():
-    def __init__(self, show=False, size=SIZE):
+    def __init__(self, show=False, size=6):
         self.show = show
         self.size = size
 
