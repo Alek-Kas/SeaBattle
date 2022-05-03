@@ -1,16 +1,32 @@
 #  Основной код
+from random import randint
 from dot import Dot
 from messages import Greeting, Clr_Scr
 from ship import Ship
+from board import Boards
 
-print(Greeting())
-print(Clr_Scr())
-ship_1 = Ship(3, 1, Dot(2, 2))
-ship_2 = Ship(2, 0, Dot(3, 4))
-ship_3 = Ship(1, 1, Dot(0, 0))
 
-print(ship_1.dots)
-print(ship_2.dots)
-print(ship_3.dots)
+class Game:
+    def try_board(self):
+        lens = [3, 2, 2, 1, 1, 1, 1]
+        board = Boards(size=self.size)
+        attempts = 0
+        for l in lens:
+            while True:
+                attempts += 1
+                if attempts > 2000:
+                    return None
+                ship = Ship(l, randint(0, 1), Dot(randint(0, sefl.size), (0, sefl.size)))
+                try:
+                    board.add_ship(ship)
+                    break
+                except BoardShipOutException:
+                    pass
+        board.begin()
+        return board
 
-print(ship_1.hitten(Dot(0, 3)))
+    def random_board(self):
+        board = None
+        while board is None:
+            board = self.try_board()
+        return board
