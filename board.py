@@ -1,17 +1,18 @@
 #  Класс доски для каждого из игроков
 from dot import Dot
 from exclusion import BoardOutException, BoardShipOutException, BoardUsedException
-from ship import Ship
+# from ship import Ship
 
 # SIZE = 6
 
-class Boards():
+
+class Boards:
     def __init__(self, show=False, size=6):
         self.show = show
         self.size = size
 
         self.dstr_ship = 0
-        self.field = [['.'] * size for i in range(size)]
+        self.field = [['.'] * size for _ in range(size)]
 
         self.cond = []
         self.ships = []
@@ -73,7 +74,6 @@ class Boards():
         self.field[d.x][d.y] = '*'
         print('Промах!')
         return False
-
 
     def begin(self):
         self.cond = []

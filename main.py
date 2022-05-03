@@ -24,7 +24,7 @@ class Game:
         for l in lens:
             while True:
                 attempts += 1
-                if attempts > 2000:
+                if attempts > 3000:
                     return None
                 ship = Ship(l, randint(0, 1), Dot(randint(0, self.size), randint(0, self.size)))
                 try:
@@ -70,8 +70,8 @@ class Game:
             num += 1
 
     def start(self):
-        ClrScr()
-        Greeting()
+        print(ClrScr())
+        print(Greeting())
         self.loop()
 
 

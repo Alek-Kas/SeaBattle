@@ -1,7 +1,7 @@
 #  Класс точек на поле
 class Dot:
 
-    def __init__(self, x, y):  #координаты и состояние точки
+    def __init__(self, x, y):  # координаты и состояние точки
         self.x = x
         self.y = y
         # self.cond = cond

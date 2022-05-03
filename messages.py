@@ -1,9 +1,9 @@
 #  Приветственное сообщение
-class Greeting():
+class Greeting:
     def __str__(self):
-        return '**********************\n' \
+        return '*' * 22 + '\n' \
                '*  ИГРА МОРСКОЙ БОЙ  *\n' \
-               '**********************\n' \
+               + '*' * 22 + '\n' \
                '\n' \
                'Эта игра в "морской бой с копьютером"\n' \
                'Игра проходит на поле размаром 6х6 клеток\n' \
@@ -14,7 +14,10 @@ class Greeting():
                '\n\n'
 
 
-class ClrScr():
+class ClrScr:
     def __str__(self):
         strings = 40
         return '\n' * strings
+
+
+# print(Greeting())

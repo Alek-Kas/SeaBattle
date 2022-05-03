@@ -1,6 +1,7 @@
 #  Класс кораблей
 from dot import Dot
 
+
 class Ship:
 
     def __init__(self, lenght, direction, x_y):
@@ -20,7 +21,7 @@ class Ship:
             # point_x = self.x_y.x
             # point_y = self.x_y.y
             if self.direction == 0:
-                point_x +=1
+                point_x += 1
             elif self.direction == 1:
                 point_y += 1
             # ship_dots.append(Dot(point_x, point_y))
