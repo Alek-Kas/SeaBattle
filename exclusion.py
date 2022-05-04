@@ -4,7 +4,7 @@ class BoardException(Exception):
 
 class BoardOutException(BoardException):
     def __str__(self):
-        return 'Shot out of board'
+        return 'Выстрел за пределы доски'
 
 
 class BoardShipOutException(BoardException):
@@ -13,4 +13,4 @@ class BoardShipOutException(BoardException):
 
 class BoardUsedException(BoardException):
     def __str__(self):
-        return 'The shot in this cell has already been'
+        return 'В эту клетку уже нельзя стрелять'

@@ -1,10 +1,8 @@
 #  Приветственное сообщение
-# from main import Game
 
 class Greeting:
     def __init__(self, size):
         self.size = size
-
 
     def __str__(self):
         # self.size = str(size)
@@ -28,6 +26,3 @@ class ClrScr:
     def __str__(self):
         strings = 40
         return '\n' * strings
-
-
-# print(Greeting())
