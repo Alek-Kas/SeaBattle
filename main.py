@@ -8,6 +8,8 @@ from ship import Ship
 from board import Boards
 import time
 
+BOARD_SIZE = 7
+
 
 class Game:
     def __init__(self, size=6):
@@ -72,10 +74,10 @@ class Game:
 
     def start(self):
         print(ClrScr())
-        print(Greeting())
+        print(Greeting(BOARD_SIZE))
         time.sleep(15)
         self.loop()
 
 
-g = Game()
+g = Game(BOARD_SIZE)
 g.start()

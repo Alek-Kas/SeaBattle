@@ -3,9 +3,7 @@ import time
 
 from dot import Dot
 from exclusion import BoardOutException, BoardShipOutException, BoardUsedException
-# from ship import Ship
 
-# SIZE = 6
 PAUSE = 10
 
 class Boards:
