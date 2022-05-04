@@ -89,11 +89,3 @@ class Boards:
     def begin(self):
         self.cond = []
 
-# s_1 = Ship(3, 1, Dot(2, 2))
-# s_2 = Ship(3, 0, Dot(0, 0))
-# s_3 = Ship(2, 1, Dot(4, 4))
-# b = Boards()
-# b.add_ship(s_1)
-# b.add_ship(s_2)
-# b.add_ship(s_3)
-# print(b)
