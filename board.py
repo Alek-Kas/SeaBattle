@@ -1,13 +1,15 @@
 #  Класс доски для каждого из игроков
+import time
+
 from dot import Dot
 from exclusion import BoardOutException, BoardShipOutException, BoardUsedException
 # from ship import Ship
 
 # SIZE = 6
-
+pause = 10
 
 class Boards:
-    def __init__(self, show=False, size=6):
+    def __init__(self, show=True, size=6):
         self.show = show
         self.size = size
 
@@ -22,8 +24,8 @@ class Boards:
         res_board += '__| 1 | 2 | 3 | 4 | 5 | 6 |'
         for i, row in enumerate(self.field):
             res_board += f'\n{i + 1} | ' + ' | ' .join(row) + ' |'
-        if self.show:
-            res_board = res_board.replace('.', 'O')
+        if not self.show:
+            res_board = res_board.replace('O', '.')
         return res_board
 
     def out_board(self, d):
@@ -67,12 +69,15 @@ class Boards:
                     self.dstr_ship += 1
                     self.contour(ship, verb=True)
                     print('Корабль потоплен!')
+                    time.sleep(30)
                     return False
                 else:
                     print('Корабль ранен!')
+                    time.sleep(30)
                     return True
         self.field[d.x][d.y] = '*'
         print('Промах!')
+        time.sleep(30)
         return False
 
     def begin(self):
