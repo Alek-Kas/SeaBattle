@@ -6,6 +6,7 @@ from exclusion import BoardOutException, BoardShipOutException, BoardUsedExcepti
 
 PAUSE = 9
 
+
 class Boards:
     def __init__(self, show=True, size=6):
         self.show = show
@@ -88,4 +89,3 @@ class Boards:
 
     def begin(self):
         self.cond = []
-
