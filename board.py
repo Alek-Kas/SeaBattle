@@ -18,10 +18,18 @@ class Boards:
         self.ships = []
 
     def __str__(self):
+        # first_str = ' 1 | 2 | 3 | 4 | 5 | 6 |'
+        # res_board = '\t|'
         res_board = ''
-        res_board += '__| 1 | 2 | 3 | 4 | 5 | 6 |'
+        first_str = '\t|'
+        for i in range(1, self.size + 1):
+            if i < 10:
+                first_str += f' {i} |'
+            else:
+                first_str += f' {i}|'
+        res_board += first_str
         for i, row in enumerate(self.field):
-            res_board += f'\n{i + 1} | ' + ' | ' .join(row) + ' |'
+            res_board += f'\n{i + 1}\t| ' + ' | ' .join(row) + ' |'
         if not self.show:
             res_board = res_board.replace('O', '.')
         return res_board
