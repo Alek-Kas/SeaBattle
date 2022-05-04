@@ -21,12 +21,12 @@ class Game:
         lens = [3, 2, 2, 1, 1, 1, 1]
         board = Boards(size=self.size)
         attempts = 0
-        for l in lens:
+        for i in lens:
             while True:
                 attempts += 1
                 if attempts > 3000:
                     return None
-                ship = Ship(l, randint(0, 1), Dot(randint(0, self.size), randint(0, self.size)))
+                ship = Ship(i, randint(0, 1), Dot(randint(0, self.size), randint(0, self.size)))
                 try:
                     board.add_ship(ship)
                     break
