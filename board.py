@@ -6,7 +6,7 @@ from exclusion import BoardOutException, BoardShipOutException, BoardUsedExcepti
 # from ship import Ship
 
 # SIZE = 6
-pause = 10
+PAUSE = 10
 
 class Boards:
     def __init__(self, show=True, size=6):
@@ -49,7 +49,7 @@ class Boards:
         for d in ship.dots:
             if self.out_board(d) or d in self.cond:
                 raise BoardShipOutException()
-        for d in ship.dots:
+        for d in ship.dots:  # отрисовка корабля символом "O"
             self.field[d.x][d.y] = 'O'
             self.cond.append(d)
         self.ships.append(ship)
@@ -69,15 +69,15 @@ class Boards:
                     self.dstr_ship += 1
                     self.contour(ship, verb=True)
                     print('Корабль потоплен!')
-                    time.sleep(30)
+                    time.sleep(PAUSE)
                     return False
                 else:
                     print('Корабль ранен!')
-                    time.sleep(30)
+                    time.sleep(PAUSE)
                     return True
         self.field[d.x][d.y] = '*'
         print('Промах!')
-        time.sleep(30)
+        time.sleep(PAUSE)
         return False
 
     def begin(self):

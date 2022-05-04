@@ -6,6 +6,7 @@ from messages import Greeting, ClrScr
 from player import AI, User
 from ship import Ship
 from board import Boards
+import time
 
 
 class Game:
@@ -72,6 +73,7 @@ class Game:
     def start(self):
         print(ClrScr())
         print(Greeting())
+        time.sleep(15)
         self.loop()
 
 
