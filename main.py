@@ -47,8 +47,18 @@ class Game:
                 print(board)  # напечать доску перед каждым кораблём
                 print(f'Введите координаты первой клетки корабля длинной {i} и направление,'
                       f'где "1" - горизонтально, а "0" - вертикально')
-                x_y_d = input('?: ').split()  # сделать через функцию игрока
-                x, y, d = x_y_d
+                while True:
+                    x_y_d = input('Введите: ').split()
+                    if len(x_y_d) != 3:
+                        print(' Введите три числа через пробел! ')
+                        continue
+                    x, y, d = x_y_d
+                    if not (x.isdigit()) or not (y.isdigit()) or not (d.isdigit()):
+                        print(' Введите числа! ')
+                        continue
+                    break
+                # x_y_d = input('?: ').split()  # через функцию не стал делать, так как используется 1 раз
+                # x, y, d = x_y_d
                 x, y, d = int(x), int(y), int(d)
                 ship = Ship(i, d, Dot(x - 1, y - 1))
                 try:
