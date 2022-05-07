@@ -75,7 +75,7 @@ class Game:
     def start(self):
         print(ClrScr())
         print(Greeting(board_size))
-        time.sleep(15)
+        time.sleep(10)
         self.loop()
 
 
