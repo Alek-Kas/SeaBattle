@@ -16,8 +16,8 @@ class Game:
         self.size = size
         co = self.random_board()
         co.show = False
-        # pl = self.random_board()  # это для сучайной расстановки кораблей игроку
-        pl = self.manual_board()  # это для ручной расстановки кораблей игроком
+        pl = self.random_board()  # это для сучайной расстановки кораблей игроку
+        # pl = self.manual_board()  # это для ручной расстановки кораблей игроком
         self.ai = AI(co, pl)
         self.us = User(pl, co)
 
@@ -66,6 +66,7 @@ class Game:
         return board
 
     def loop(self):
+        pl = self.manual_board()  # для ручной расстановки кораблей игроком
         num = 0
         while True:
             print('-' * 20)
