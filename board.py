@@ -4,7 +4,7 @@ import time
 from dot import Dot
 from exclusion import BoardOutException, BoardShipOutException, BoardUsedException
 
-PAUSE = 8
+PAUSE = 1
 
 
 class Boards:

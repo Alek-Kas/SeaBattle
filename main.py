@@ -8,15 +8,16 @@ from ship import Ship
 from board import Boards
 import time
 
-board_size = 7
+board_size = 7  # выбор размера доски
 
 
 class Game:
     def __init__(self, size=6):
         self.size = size
-        pl = self.random_board()
         co = self.random_board()
         co.show = False
+        # pl = self.random_board()  # это для сучайной расстановки кораблей игроку
+        pl = self.manual_board()  # это для ручной расстановки кораблей игроком
         self.ai = AI(co, pl)
         self.us = User(pl, co)
 
@@ -30,6 +31,26 @@ class Game:
                 if attempts > 3000:
                     return None
                 ship = Ship(i, randint(0, 1), Dot(randint(0, self.size), randint(0, self.size)))
+                try:
+                    board.add_ship(ship)
+                    break
+                except BoardShipOutException:
+                    pass
+        board.begin()
+        return board
+
+    def manual_board(self):
+        lens = [3, 2, 2, 1, 1, 1, 1]  # для длинны 1 убрать запрос направления
+        board = Boards(size=self.size)
+        for i in lens:
+            while True:
+                print(board)  # напечать доску перед каждым кораблём
+                print(f'Введите координаты первой клетки корабля длинной {i} и направление,'
+                      f'где "1" - горизонтально, а "0" - вертикально')
+                x_y_d = input('?: ').split()  # сделать через функцию игрока
+                x, y, d = x_y_d
+                x, y, d = int(x), int(y), int(d)
+                ship = Ship(i, d, Dot(x - 1, y - 1))
                 try:
                     board.add_ship(ship)
                     break
@@ -54,6 +75,7 @@ class Game:
             print('Доска компьютера:')
             print(self.ai.board)
             print('-' * 20)
+            time.sleep(5)
             if num % 2 == 0:
                 print(' Ход пользователя! ')
                 repeat = self.us.move()
@@ -75,7 +97,7 @@ class Game:
     def start(self):
         print(ClrScr())
         print(Greeting(board_size))
-        time.sleep(10)
+        time.sleep(5)
         self.loop()
 
 
