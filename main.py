@@ -42,10 +42,10 @@ class Game:
     def manual_board(self):
         lens = [3, 2, 2, 1, 1, 1, 1]  # для длинны 1 убрать запрос направления
         board = Boards(size=self.size)
-        for i in lens:
+        for j, i in enumerate(lens):
             while True:
                 print(board)  # напечать доску перед каждым кораблём
-                print(f'Введите координаты первой клетки корабля длинной {i} и направление,'
+                print(f'Введите координаты первой клетки корабля номер {j + 1} из {len(lens)} длинной {i} и направление,'
                       f'где "1" - горизонтально, а "0" - вертикально')
                 while True:
                     x_y_d = input('Введите: ').split()
@@ -55,6 +55,9 @@ class Game:
                     x, y, d = x_y_d
                     if not (x.isdigit()) or not (y.isdigit()) or not (d.isdigit()):
                         print(' Введите числа! ')
+                        continue
+                    if d != '0' and d != '1':
+                        print(' Введите направление "0" или "1"! ')
                         continue
                     break
                 # x_y_d = input('?: ').split()  # через функцию не стал делать, так как используется 1 раз
@@ -76,7 +79,15 @@ class Game:
         return board
 
     def loop(self):
-        pl = self.manual_board()  # для ручной расстановки кораблей игроком
+        q = None
+        while q != 'Y' and q != 'y' and q != 'N' and q != 'n':
+            q = input('Хотите использовать случайную расстановку кораблей? Введите "Y" или "N": ')
+        if q == 'N' or q == 'n':
+            pl = self.manual_board()  # для ручной расстановки кораблей игроком
+            co = self.random_board()
+            co.show = False
+            self.ai = AI(co, pl)
+            self.us = User(pl, co)
         num = 0
         while True:
             print('-' * 20)
